@@ -13,7 +13,11 @@ public class Vliegtuig {
     }
 
     public boolean opstijgen(Luchthaven luchthaven) {
-        return true;
+        boolean toestemming = this.vraagToestemming(luchthaven.getVerkeerstoren());
+        boolean goedGewicht = this.lading.getGewicht() <= 1000;
+        boolean voldoendeTegenwind = this.tegenwind > 50;
+
+        return toestemming && (goedGewicht || voldoendeTegenwind);
     }
 
     private boolean vraagToestemming(Verkeerstoren verkeerstoren) {

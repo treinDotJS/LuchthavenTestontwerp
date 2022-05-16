@@ -6,9 +6,6 @@ public class VliegtuigTest {
     private Vliegtuig vliegtuig;
     private Luchthaven luchthaven;
 
-    @BeforeEach
-    void setUp() {
-    }
     @Test
     void opstijgenTestGeenToestemmingGoedGewichtOnvoldoendeTegenwind(){
         //Arrange

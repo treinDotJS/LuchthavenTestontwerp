@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class VliegtuigTest {
@@ -17,7 +16,7 @@ public class VliegtuigTest {
         //Act
         boolean actual = vliegtuig.opstijgen(luchthaven);
 
-        //Arrange
+        //Assert
         Assertions.assertEquals(expected, actual);
     }
     @Test
@@ -31,7 +30,7 @@ public class VliegtuigTest {
         //Act
         boolean actual = vliegtuig.opstijgen(luchthaven);
 
-        //Arrange
+        //Assert
         Assertions.assertEquals(expected, actual);
     }
     @Test
@@ -45,7 +44,7 @@ public class VliegtuigTest {
         //Act
         boolean actual = vliegtuig.opstijgen(luchthaven);
 
-        //Arrange
+        //Assert
         Assertions.assertEquals(expected, actual);
     }
     @Test
@@ -59,7 +58,80 @@ public class VliegtuigTest {
         //Act
         boolean actual = vliegtuig.opstijgen(luchthaven);
 
+        //Assert
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void getLandenPrijsOpGewicht999kg() {
         //Arrange
+        int expected = 100;
+        vliegtuig = new Vliegtuig("Cessna 172", 51, 2, false, new Lading(999, false));
+
+        //Act
+        int actual = vliegtuig.getLandenPrijsOpGewicht();
+
+        //Assert
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    void getLandenPrijsOpGewicht1000kg() {
+        //Arrange
+        int expected = 500;
+        vliegtuig = new Vliegtuig("Cessna 172", 51, 2, false, new Lading(1000, false));
+
+        //Act
+        int actual = vliegtuig.getLandenPrijsOpGewicht();
+
+        //Assert
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    void getLandenPrijsOpGewicht1001kg() {
+        //Arrange
+        int expected = 500;
+        vliegtuig = new Vliegtuig("Cessna 172", 51, 2, false, new Lading(1001, false));
+
+        //Act
+        int actual = vliegtuig.getLandenPrijsOpGewicht();
+
+        //Assert
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    void getLandenPrijsOpGewicht4999kg() {
+        //Arrange
+        int expected = 500;
+        vliegtuig = new Vliegtuig("Cessna 172", 51, 2, false, new Lading(4999, false));
+
+        //Act
+        int actual = vliegtuig.getLandenPrijsOpGewicht();
+
+        //Assert
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    void getLandenPrijsOpGewicht5000kg() {
+        //Arrange
+        int expected = 2500;
+        vliegtuig = new Vliegtuig("Cessna 172", 51, 2, false, new Lading(5000, false));
+
+        //Act
+        int actual = vliegtuig.getLandenPrijsOpGewicht();
+
+        //Assert
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    void getLandenPrijsOpGewicht5001kg() {
+        //Arrange
+        int expected = 2500;
+        vliegtuig = new Vliegtuig("Cessna 172", 51, 2, false, new Lading(5001, false));
+
+        //Act
+        int actual = vliegtuig.getLandenPrijsOpGewicht();
+
+        //Assert
         Assertions.assertEquals(expected, actual);
     }
 }

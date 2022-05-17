@@ -32,4 +32,20 @@ public class Vliegtuig {
     public void landen(Luchthaven luchthaven) {
 
     }
+
+    public double getLandenPrijs() {
+        double prijs = 0.0;
+        prijs += getLandenPrijsOpGewicht();
+        if (this.passagiers > 2) prijs *= 1.5;
+        if (this.lading.getAfhandelenDoorHaven()) prijs += 800;
+        if (this.isNederlands) prijs *= 1.21;
+        return prijs;
+    }
+
+    public int getLandenPrijsOpGewicht() {
+        int gewicht = this.lading.getGewicht();
+        if (gewicht < 1000) return 100;
+        if (gewicht < 5000) return 500;
+        return 2500;
+    }
 }

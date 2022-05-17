@@ -134,5 +134,78 @@ public class VliegtuigTest {
         //Assert
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    void getLandenPrijs999kg2PassagiersWelBagageAfhandelenWelNederlands() {
+        //Arrange
+        double expected = 1089;
+        vliegtuig = new Vliegtuig("Cessna 172", 51, 2, true, new Lading(999, true));
+
+        //Act
+        double actual = vliegtuig.getLandenPrijs();
+
+        //Assert
+        Assertions.assertEquals(expected, actual, 0.0001);
+    }
+    @Test
+    void getLandenPrijs999kg3PassagiersNietBagageAfhandelenNietNederlands() {
+        //Arrange
+        double expected = 150;
+        vliegtuig = new Vliegtuig("Cessna 172", 51, 3, false, new Lading(999, false));
+
+        //Act
+        double actual = vliegtuig.getLandenPrijs();
+
+        //Assert
+        Assertions.assertEquals(expected, actual, 0.0001);
+    }
+    @Test
+    void getLandenPrijs1000kg2PassagiersNietBagageAfhandelenWelNederlands() {
+        //Arrange
+        double expected = 605;
+        vliegtuig = new Vliegtuig("Cessna 172", 51, 2, true, new Lading(1000, false));
+
+        //Act
+        double actual = vliegtuig.getLandenPrijs();
+
+        //Assert
+        Assertions.assertEquals(expected, actual, 0.0001);
+    }
+    @Test
+    void getLandenPrijs4999kg3PassagiersWelBagageAfhandelenNietNederlands() {
+        //Arrange
+        double expected = 1550;
+        vliegtuig = new Vliegtuig("Cessna 172", 51, 3, false, new Lading(4999, true));
+
+        //Act
+        double actual = vliegtuig.getLandenPrijs();
+
+        //Assert
+        Assertions.assertEquals(expected, actual, 0.0001);
+    }
+    @Test
+    void getLandenPrijs5000kg2PassagiersWelBagageAfhandelenNietNederlands() {
+        //Arrange
+        double expected = 3300;
+        vliegtuig = new Vliegtuig("Cessna 172", 51, 2, false, new Lading(5000, true));
+
+        //Act
+        double actual = vliegtuig.getLandenPrijs();
+
+        //Assert
+        Assertions.assertEquals(expected, actual, 0.0001);
+    }
+    @Test
+    void getLandenPrijs5000kg3PassagiersNietBagageAfhandelenWelNederlands() {
+        //Arrange
+        double expected = 4537.5;
+        vliegtuig = new Vliegtuig("Cessna 172", 51, 3, true, new Lading(5000, false));
+
+        //Act
+        double actual = vliegtuig.getLandenPrijs();
+
+        //Assert
+        Assertions.assertEquals(expected, actual, 0.0001);
+    }
 }
 

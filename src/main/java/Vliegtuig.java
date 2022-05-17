@@ -34,7 +34,11 @@ public class Vliegtuig {
     }
 
     public double getLandenPrijs() {
-        int prijs = getLandenPrijsOpGewicht();
+        double prijs = 0.0;
+        prijs += getLandenPrijsOpGewicht();
+        if (this.passagiers > 2) prijs *= 1.5;
+        if (this.lading.getAfhandelenDoorHaven()) prijs += 800;
+        if (this.isNederlands) prijs *= 1.21;
         return prijs;
     }
 
